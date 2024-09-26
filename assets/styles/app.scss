@@ -1,3 +1,36 @@
+@font-face {
+  font-family: HalcyonMD;
+  src: url("../fonts/halcyon-medium.otf") format("opentype");
+}
+
+@font-face {
+    font-family: HalcyonRL;
+    src: url("../fonts/halcyon-regular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: HalcyonSB;
+    src: url("../fonts/halcyon-semibold.otf") format("opentype");
+}
+
+@font-face {
+    font-family: HalcyonB;
+    src: url("../fonts/halcyon-bold.otf") format("opentype");
+}
+
+$blue-skye: #4FACF3;
+$blue-skye-dark: #264DCF;
+$white: #FFFFFF;
+$black: #000000;
+$gray: #636363;
+
+$regular: HalcyonRL;
+$medium: HalcyonMD;
+$semibold: HalcyonSB;
+$bold: HalcyonB;
+
 body {
-    background-color: skyblue;
+  font-family: $bold, sans-serif;
+  background-color: $white;
+  color: $black;
 }

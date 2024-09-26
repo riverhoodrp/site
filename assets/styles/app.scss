@@ -90,7 +90,7 @@ body {
                         font-family: $inter, sans-serif;
                         font-weight: 500;
                         position: relative;
-                        transition: transform 0.1s ease-in-out;
+                        transition: transform 0.3s ease-in-out;
                         display: inline-block;
 
                         &::after:not(.navbar-brand) {
@@ -155,6 +155,28 @@ body {
                 }
             }
         }
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        height: 100%;
+
+        .home-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            width: 45%;
+        }
+    }
+
+    .flex-col {
+        display: flex;
+        flex-direction: column;
     }
 }
 

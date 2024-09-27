@@ -2,26 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-    font-family: HalcyonMD;
-    src: url("../fonts/halcyon-medium.otf") format("opentype");
-}
-
-@font-face {
-    font-family: HalcyonRL;
-    src: url("../fonts/halcyon-regular.otf") format("opentype");
-}
-
-@font-face {
-    font-family: HalcyonSB;
-    src: url("../fonts/halcyon-semibold.otf") format("opentype");
-}
-
-@font-face {
-    font-family: HalcyonB;
-    src: url("../fonts/halcyon-bold.otf") format("opentype");
-}
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
@@ -32,14 +12,11 @@
     --gray: #636363;
 }
 
-$regular: HalcyonRL;
-$medium: HalcyonMD;
-$semibold: HalcyonSB;
-$bold: HalcyonB;
 $inter: Inter;
 
 * {
     box-sizing: border-box;
+    //outline: 1px solid red;
 }
 
 html {
@@ -53,12 +30,48 @@ body {
     font-family: $inter, sans-serif;
 }
 
+.navbar {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar.transparent {
+    background-color: rgba(79, 172, 243, 0.51); /* Couleur de fond transparente */
+}
+
+.navbar.scroll {
+    transform: scale(1.05); /* Augmente légèrement la taille des éléments */
+}
+
+.arrow-up {
+    cursor: pointer;
+    opacity: 0;
+
+    &.visible {
+        opacity: 1;
+    }
+}
+
 #mobile-menu {
     display: none; /* Par défaut, le menu est caché */
 }
 
 #mobile-menu.block {
     display: block; /* Affiche le menu lorsque la classe block est ajoutée */
+}
+
+.join-us {
+    display: inline-block;
+    position: relative;
+    outline: 2px solid var(--blue-skye);
+    outline-offset: 2px;
+    transition: outline-offset 0.1s ease-in-out, outline-color 0.1s ease-in-out, transform 0.1s ease-in-out; /* Spécifier transform */
+    transform: scale(1); /* Assurez-vous que l'élément a une transformation de base */
+
+    &:hover {
+        outline-color: var(--blue-skye-dark);
+        outline-offset: 4px;
+        transform: scale(1.1); /* Appliquer l'effet de scale */
+    }
 }
 
 @keyframes slideInLeft {

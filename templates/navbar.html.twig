@@ -1,9 +1,9 @@
-<nav class="bg-blue-skye fixed top-0 w-full z-50">
+<nav class="bg-blue-skye w-full z-50 navbar fixed top-0">
     <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div class="relative flex h-16 items-center justify-between">
             <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 <!-- Mobile menu button-->
-                <button type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-white hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+                <button type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-white hover:bg-blue-skye-dark hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
                     <span class="absolute -inset-0.5"></span>
                     <span class="sr-only">Open main menu</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
@@ -21,44 +21,45 @@
                     </svg>
                 </button>
             </div>
-            <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                <div class="flex flex-shrink-0 items-center">
-                    <img class="h-10 w-auto" src="{{ asset('images/logo_white.png') }}" alt="Logo Blanc" draggable="false">
-                </div>
-                <div class="hidden sm:ml-6 sm:block">
-                    <div class="flex space-x-4">
-                        <a href="#" class="rounded-md bg-blue-skye-dark px-3 py-2 text-sm font-medium text-white" aria-current="page">Accueil</a>
-                        <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-white hover:bg-blue-skye-dark hover:text-white">Règlement</a>
-                        <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-white hover:bg-blue-skye-dark hover:text-white">Réseaux</a>
-                        <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-white hover:bg-blue-skye-dark hover:text-white">À props</a>
+            <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+                <!-- Logo -->
+                <div class="flex items-center justify-center space-x-6 w-full mx-auto">
+                    <img class="h-10 left-0 animate-fade-right" src="{{ asset('images/logo_white.png') }}" alt="Logo Blanc" draggable="false">
+                    <!-- Lien de navigation -->
+                    <div class="hidden sm:block">
+                        <div class="flex justify-center space-x-6">
+                            <a href="#" class="rounded-md bg-blue-skye-dark px-3 py-2 text-sm font-medium text-white" aria-current="page">Accueil</a>
+                            <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-white hover:bg-blue-skye-dark hover:text-white">Règlement</a>
+                            <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-white hover:bg-blue-skye-dark hover:text-white">Réseaux</a>
+                            <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-white hover:bg-blue-skye-dark hover:text-white">À propos</a>
+                            <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-white hover:bg-blue-skye-dark hover:text-white">Recrutements</a>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <!-- Profile dropdown -->
                 <div class="relative ml-3">
-                    <div>
-                        <button type="button" class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" title="Menu utilisateur" aria-expanded="false" aria-haspopup="true">
-                            <span class="absolute -inset-1.5"></span>
-                            <span class="sr-only">Open user menu</span>
-                            {% if app.user %}
-                                <img class="h-8 w-8 rounded-full" src="{{ app.user.avatarHash }}" alt="">
-                            {% else %}
-                                <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
-                                    <g fill-rule="evenodd">
-                                        <path d="m12.594 23.258l-.012.002l-.071.035l-.02.004l-.014-.004l-.071-.036q-.016-.004-.024.006l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.016-.018m.264-.113l-.014.002l-.184.093l-.01.01l-.003.011l.018.43l.005.012l.008.008l.201.092q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.003-.011l.018-.43l-.003-.012l-.01-.01z" />
-                                        <path fill="#264DCF" d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10s10-4.477 10-10S17.523 2 12 2M8.5 9.5a3.5 3.5 0 1 1 7 0a3.5 3.5 0 0 1-7 0m9.758 7.484A7.99 7.99 0 0 1 12 20a7.99 7.99 0 0 1-6.258-3.016C7.363 15.821 9.575 15 12 15s4.637.821 6.258 1.984" />
-                                    </g>
-                                </svg>
-                            {% endif %}
-                        </button>
-                    </div>
-
-                    <div class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden" id="user-menu" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+                    <button type="button" class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" title="Menu utilisateur" aria-expanded="false" aria-haspopup="true">
+                        <span class="absolute -inset-1.5"></span>
+                        <span class="sr-only">Open user menu</span>
                         {% if app.user %}
-                            <a href="/logout" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-skye-dark" role="menuitem" tabindex="-1" id="user-menu-item-0">Déconnexion</a>
+                            <img class="h-8 w-8 rounded-full" src="{{ app.user.avatarHash }}" alt="">
                         {% else %}
-                            <a href="/auth/discord/start" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-skye-dark" role="menuitem" tabindex="-1" id="user-menu-item-0">Connexion</a>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
+                                <g fill-rule="evenodd">
+                                    <path d="m12.594 23.258l-.012.002l-.071.035l-.02.004l-.014-.004l-.071-.036q-.016-.004-.024.006l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.016-.018m.264-.113l-.014.002l-.184.093l-.01.01l-.003.011l.018.43l.005.012l.008.008l.201.092q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.003-.011l.018-.43l-.003-.012l-.01-.01z" />
+                                    <path fill="#264DCF" d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10s10-4.477 10-10S17.523 2 12 2M8.5 9.5a3.5 3.5 0 1 1 7 0a3.5 3.5 0 0 1-7 0m9.758 7.484A7.99 7.99 0 0 1 12 20a7.99 7.99 0 0 1-6.258-3.016C7.363 15.821 9.575 15 12 15s4.637.821 6.258 1.984" />
+                                </g>
+                            </svg>
+                        {% endif %}
+                    </button>
+
+                    <!-- Menu utilisateur dropdown -->
+                    <div class="absolute right-0 z-10 mt-6 w-48 origin-top-right rounded-md bg-blue-skye shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden" id="user-menu" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+                        {% if app.user %}
+                            <a href="/logout" class="block px-4 py-2 text-sm text-white hover:text-black rounded-md hover:bg-blue-skye-dark border-2 border-transparent hover:border-black" role="menuitem" tabindex="-1" id="user-menu-item-0">Déconnexion</a>
+                        {% else %}
+                            <a href="/auth/discord/start" class="block px-4 py-2 text-sm text-white hover:text-black rounded-md hover:bg-blue-skye-dark border-2 border-transparent hover:border-black" role="menuitem" tabindex="-1" id="user-menu-item-0">Connexion</a>
                         {% endif %}
                     </div>
                 </div>
@@ -68,10 +69,20 @@
 
     <div class="hidden" id="mobile-menu">
         <div class="space-y-1 px-2 pb-3 pt-2">
-            <a href="#" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" aria-current="page">Accueil</a>
-            <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Règlement</a>
-            <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Réseaux</a>
-            <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">À propos</a>
+            <a href="#" class="block rounded-md bg-blue-skye-dark px-3 py-2 text-base font-medium text-white" aria-current="page">Accueil</a>
+            <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-blue-skye-dark hover:text-white">Règlement</a>
+            <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-blue-skye-dark hover:text-white">Réseaux</a>
+            <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-blue-skye-dark hover:text-white">À propos</a>
+            <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-blue-skye-dark hover:text-white">Recrutements</a>
         </div>
     </div>
 </nav>
+
+<div class="fixed bottom-10 right-10 rounded-full bg-blue-skye z-40 p-2 arrow-up">
+    <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24">
+        <g fill="none">
+            <path d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+            <path fill="white" d="M13.06 3.283a1.5 1.5 0 0 0-2.12 0L5.281 8.939a1.5 1.5 0 0 0 2.122 2.122L10.5 7.965V19.5a1.5 1.5 0 0 0 3 0V7.965l3.096 3.096a1.5 1.5 0 1 0 2.122-2.122z" />
+        </g>
+    </svg>
+</div>

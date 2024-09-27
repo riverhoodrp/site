@@ -17,6 +17,9 @@ class User implements UserInterface
     #[ORM\Column(length: 255)]
     private ?string $discordId = null;
 
+    #[ORM\Column(length: 500)]
+    private ?string $avatarHash = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -30,6 +33,19 @@ class User implements UserInterface
     public function setDiscordId(string $discordId): static
     {
         $this->discordId = $discordId;
+
+        return $this;
+    }
+
+    public function getAvatarHash(): ?string
+    {
+        return $this->avatarHash;
+    }
+
+    public function setAvatarHash(string $avatarHash): static
+    {
+        dump($avatarHash);
+        $this->avatarHash = $avatarHash;
 
         return $this;
     }

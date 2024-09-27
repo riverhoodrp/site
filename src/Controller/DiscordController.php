@@ -22,6 +22,6 @@ final class DiscordController extends AbstractController
     #[Route("/start", name: "start")]
     public function start(ClientRegistry $clientRegistry): RedirectResponse
     {
-        return $clientRegistry->getClient("discord")->redirect(["identify"]);
+        return $clientRegistry->getClient("discord")->redirect(["identify", "email", "guilds", "guilds.members.read"]);
     }
 }

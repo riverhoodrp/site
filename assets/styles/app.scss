@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
     font-family: HalcyonMD;
     src: url("../fonts/halcyon-medium.otf") format("opentype");
@@ -18,13 +22,15 @@
     src: url("../fonts/halcyon-bold.otf") format("opentype");
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-$blue-skye: #4FACF3;
-$blue-skye-dark: #264DCF;
-$white: #FFFFFF;
-$black: #000000;
-$gray: #636363;
+:root {
+    --blue-skye: #4FACF3;
+    --blue-skye-dark: #264DCF;
+    --white: #FFFFFF;
+    --black: #000000;
+    --gray: #636363;
+}
 
 $regular: HalcyonRL;
 $medium: HalcyonMD;
@@ -32,180 +38,27 @@ $semibold: HalcyonSB;
 $bold: HalcyonB;
 $inter: Inter;
 
-//* {
-//    outline: 1px solid red;
-//}
-
-body {
-    font-family: $semibold, sans-serif;
-    background-color: $white;
-    color: $black;
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-
-    .nav-header {
-        width: 100%;
-        height: 80px;
-
-        .navbar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 100%;
-            width: 100%;
-            background-color: $gray;
-            color: $white;
-
-            .navbar-brand {
-                left: 0;
-                width: 5rem;
-                height: 5rem;
-
-                img {
-                    animation: slideInLeft 0.5s ease-in forwards;
-                }
-
-                a {
-                    width: 100%;
-                    height: 100%;
-                    display: flex;
-                }
-            }
-
-            .mobile-menu {
-                display: none;
-            }
-
-            ul {
-                display: flex;
-                list-style: none;
-
-                li {
-                    margin: 0 1rem;
-                    a {
-                        text-decoration: none;
-                        color: $white;
-                        font-family: $inter, sans-serif;
-                        font-weight: 500;
-                        position: relative;
-                        transition: transform 0.3s ease-in-out;
-                        display: inline-block;
-
-                        &::after:not(.navbar-brand) {
-                            content: "";
-                            position: absolute;
-                            left: 0;
-                            bottom: -5px;
-                            width: 100%;
-                            height: 2px;
-                            background-color: $blue-skye;
-                            transform: scaleX(0);
-                            transition: transform 0.3s ease;
-                        }
-
-                        &:hover::after {
-                            transform: scaleX(1);
-                        }
-
-                        &:hover {
-                            color: $blue-skye;
-                            transform: scale(1.1);
-                        }
-                    }
-                }
-            }
-        }
-
-        .mobile-nav {
-            position: fixed;
-            top: 80px; // Hauteur de votre barre de navigation
-            left: 0;
-            width: 100%;
-            height: calc(100vh - 80px);
-            background-color: $gray;
-            transform: translateX(-100%);
-            transition: transform 0.3s ease-in-out;
-
-            &.active {
-                transform: translateX(0);
-            }
-
-            ul {
-                list-style: none;
-                padding: 0;
-                margin: 0;
-                height: 100%;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-
-                li {
-                    margin: 1rem 0;
-
-                    a {
-                        text-decoration: none;
-                        color: $white;
-                        font-family: $inter, sans-serif;
-                        font-weight: 500;
-                        font-size: 1.5rem;
-                    }
-                }
-            }
-        }
-    }
-
-    .container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: auto;
-        height: 100%;
-
-        .home-content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            text-align: center;
-            width: 45%;
-        }
-    }
-
-    .flex-col {
-        display: flex;
-        flex-direction: column;
-    }
+* {
+    box-sizing: border-box;
 }
 
-@media screen and (max-width: 768px) {
-    body .nav-header .navbar {
-        ul:not(.navbar-brand, .mobile-menu) {
-            display: none;
-        }
+html {
+    scroll-behavior: smooth;
+}
 
-        .mobile-menu {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            li {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-                button {
-                    background-color: transparent;
-                    border: none;
-                    cursor: pointer;
-                    color: $white;
-                    font-size: 1.5rem;
-                }
-            }
-        }
-    }
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: $inter, sans-serif;
+}
+
+#mobile-menu {
+    display: none; /* Par défaut, le menu est caché */
+}
+
+#mobile-menu.block {
+    display: block; /* Affiche le menu lorsque la classe block est ajoutée */
 }
 
 @keyframes slideInLeft {
@@ -214,5 +67,35 @@ body {
     }
     to {
         transform: translateX(0);
+    }
+}
+
+@keyframes appearWithSlideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(200%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeOutDown {
+    from {
+        opacity: 0;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }

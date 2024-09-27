@@ -14,7 +14,7 @@ module.exports = {
           "100%": {
             opacity: "1",
           },
-        },
+        }
       },
       animation: {
         appear: "appear 0.5s ease-in-out",
@@ -28,7 +28,7 @@ module.exports = {
         "nav-hover-color": "var(--nav-hover-color)",
       },
       borderColor: {
-        "border-color": "var(--border-color)",
+        "blue-skye": "var(--blue-skye)",
       },
     },
     screens: {
@@ -45,6 +45,8 @@ module.exports = {
       '2xl': '2440px',
     }
   },
-  plugins: [],
+  plugins: [
+    require('tailwindcss-animated')
+  ],
 }
 

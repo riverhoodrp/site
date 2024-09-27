@@ -20,6 +20,13 @@ class User implements UserInterface
     #[ORM\Column(length: 500)]
     private ?string $avatarHash = null;
 
+    #[ORM\Column(type: 'string', length: 255)]
+    private ?string $username = null;
+
+
+    #[ORM\Column(type: 'json')] // Utilisation du type JSON pour stocker les rôles
+    private array $roles = []; // Initialiser avec un tableau vide ou un tableau avec des rôles par défaut
+
     public function getId(): ?int
     {
         return $this->id;
@@ -37,6 +44,18 @@ class User implements UserInterface
         return $this;
     }
 
+    public function getUsername(): ?string
+    {
+        return $this->username;
+    }
+
+    public function setUsername(string $username): static
+    {
+        $this->username = $username;
+
+        return $this;
+    }
+
     public function getAvatarHash(): ?string
     {
         return $this->avatarHash;
@@ -44,7 +63,6 @@ class User implements UserInterface
 
     public function setAvatarHash(string $avatarHash): static
     {
-        dump($avatarHash);
         $this->avatarHash = $avatarHash;
 
         return $this;
@@ -52,12 +70,32 @@ class User implements UserInterface
 
     public function getRoles(): array
     {
-        return ['ROLE_USER'];
+        // S'assurer que l'utilisateur a toujours au moins ROLE_USER
+        $roles = $this->roles;
+        if (empty($roles)) {
+            $roles[] = 'ROLE_USER';
+        }
+
+        return array_unique($roles);
+    }
+
+    public function setRoles(array $roles): self
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+    public function addRole(string $role): void
+    {
+        if (!in_array($role, $this->roles)) {
+            $this->roles[] = $role;
+        }
     }
 
     public function eraseCredentials(): void
     {
-        // TODO: Implement eraseCredentials() method.
+        // Si vous avez des données sensibles, comme un mot de passe en clair, effacez-le ici
     }
 
     public function getUserIdentifier(): string

@@ -49,13 +49,17 @@ final class DiscordAuthenticator extends OAuth2Authenticator implements Authenti
 
                 $user = $this->userRepository->findOneBy(["discordId" => $discordUser->getId()]);
 
+                $avatar = "https://cdn.discordapp.com/avatars/" . $discordUser->getId() . "/" . $discordUser->getAvatarHash() . ".png";
+
                 if (null === $user) {
                     $user = new User();
                     $user->setDiscordId($discordUser->getId());
-                    $avatar = "https://cdn.discordapp.com/avatars/" . $discordUser->getId() . "/" . $discordUser->getAvatarHash() . ".png";
                     $user->setAvatarHash($avatar);
-
                     $this->em->persist($user);
+                } else {
+                    if ($user->getAvatarHash() !== $avatar) {
+                        $user->setAvatarHash($avatar);
+                    }
                 }
 
                 $this->em->flush();

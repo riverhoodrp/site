@@ -23,6 +23,7 @@
         "build": "encore production --progress"
     },
     "dependencies": {
-        "sass": "^1.79.3"
+        "sass": "^1.79.3",
+        "tailwindcss-animated": "^1.1.2"
     }
 }

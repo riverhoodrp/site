@@ -28,11 +28,32 @@
                     <!-- Lien de navigation -->
                     <div class="hidden sm:block">
                         <div class="flex justify-center space-x-6">
-                            <a href="#" class="rounded-md bg-blue-skye-dark px-3 py-2 text-sm font-medium text-white" aria-current="page">Accueil</a>
-                            <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-white hover:bg-blue-skye-dark hover:text-white">Règlement</a>
-                            <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-white hover:bg-blue-skye-dark hover:text-white">Réseaux</a>
-                            <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-white hover:bg-blue-skye-dark hover:text-white">À propos</a>
-                            <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-white hover:bg-blue-skye-dark hover:text-white">Recrutements</a>
+                            <a href="{{ path('app_home') }}"
+                               class="rounded-md px-3 py-2 text-sm font-medium text-white
+           {% if app.request.attributes.get('_route') == 'app_home' %} bg-blue-skye-dark {% else %} hover:bg-blue-skye-dark hover:text-white {% endif %}"
+                               aria-current="page">
+                                Accueil
+                            </a>
+                            <a href="{{ path('app_reglement') }}"
+                               class="rounded-md px-3 py-2 text-sm font-medium text-white
+           {% if app.request.attributes.get('_route') == 'app_reglement' %} bg-blue-skye-dark {% else %} hover:bg-blue-skye-dark hover:text-white {% endif %}">
+                                Règlement
+                            </a>
+                            <a href="#"
+                               class="rounded-md px-3 py-2 text-sm font-medium text-white
+           {% if app.request.attributes.get('_route') == '' %} bg-blue-skye-dark {% else %} hover:bg-blue-skye-dark hover:text-white {% endif %}">
+                                Patchnotes
+                            </a>
+                            <a href="#"
+                               class="rounded-md px-3 py-2 text-sm font-medium text-white
+           {% if app.request.attributes.get('_route') == '' %} bg-blue-skye-dark {% else %} hover:bg-blue-skye-dark hover:text-white {% endif %}">
+                                À propos
+                            </a>
+                            <a href="{{ path('jobs_list') }}"
+                               class="rounded-md px-3 py-2 text-sm font-medium text-white
+           {% if app.request.attributes.get('_route') == 'jobs_list' %} bg-blue-skye-dark {% else %} hover:bg-blue-skye-dark hover:text-white {% endif %}">
+                                Recrutements
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -57,6 +78,9 @@
                     <!-- Menu utilisateur dropdown -->
                     <div class="absolute right-0 z-10 mt-6 w-48 origin-top-right rounded-md bg-blue-skye shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden" id="user-menu" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
                         {% if app.user %}
+                            {% if is_granted("ROLE_ADMIN") %}
+                                <a href="/admin" class="block px-4 py-2 text-sm text-white hover:text-black rounded-md hover:bg-blue-skye-dark border-2 border-transparent hover:border-black" role="menuitem" tabindex="-1" id="user-menu-item-0">Administration</a>
+                            {% endif %}
                             <a href="/logout" class="block px-4 py-2 text-sm text-white hover:text-black rounded-md hover:bg-blue-skye-dark border-2 border-transparent hover:border-black" role="menuitem" tabindex="-1" id="user-menu-item-0">Déconnexion</a>
                         {% else %}
                             <a href="/auth/discord/start" class="block px-4 py-2 text-sm text-white hover:text-black rounded-md hover:bg-blue-skye-dark border-2 border-transparent hover:border-black" role="menuitem" tabindex="-1" id="user-menu-item-0">Connexion</a>
@@ -69,16 +93,16 @@
 
     <div class="hidden" id="mobile-menu">
         <div class="space-y-1 px-2 pb-3 pt-2">
-            <a href="#" class="block rounded-md bg-blue-skye-dark px-3 py-2 text-base font-medium text-white" aria-current="page">Accueil</a>
-            <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-blue-skye-dark hover:text-white">Règlement</a>
-            <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-blue-skye-dark hover:text-white">Réseaux</a>
+            <a href="{{ path('app_home') }}" class="block rounded-md px-3 py-2 text-base font-medium text-white {% if app.request.attributes.get('_route') == 'app_home' %} bg-blue-skye-dark {% endif %}" aria-current="page">Accueil</a>
+            <a href="{{ path('app_reglement') }}" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-blue-skye-dark hover:text-white {% if app.request.attributes.get('_route') == 'app_reglement' %} bg-blue-skye-dark {% endif %}">Règlement</a>
+            <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-blue-skye-dark hover:text-white">Patchnotes</a>
             <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-blue-skye-dark hover:text-white">À propos</a>
-            <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-blue-skye-dark hover:text-white">Recrutements</a>
+            <a href="{{ path('jobs_list') }}" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-blue-skye-dark hover:text-white {% if app.request.attributes.get('_route') == 'jobs_list' %} bg-blue-skye-dark {% endif %}">Recrutements</a>
         </div>
     </div>
 </nav>
 
-<div class="fixed bottom-10 right-10 rounded-full bg-blue-skye z-40 p-2 arrow-up">
+<div class="fixed bottom-10 right-10 rounded-full bg-blue-skye z-40 p-2 arrow-up shadow-2xl border-2 ring-1 ring-black ring-opacity-5">
     <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24">
         <g fill="none">
             <path d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />

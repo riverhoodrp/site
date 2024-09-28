@@ -10,7 +10,15 @@
                 <ul class="space-y-4">
                     {% for job in jobs %}
                         <li class="border border-gray-300 rounded-lg p-6 bg-white shadow-md hover:shadow-lg transition-shadow duration-300">
-                            <a href="{{ path('jobs_detail', { slug: job.name }) }}" class="text-xl font-semibold text-blue-600 hover:underline">{{ job.name }}</a>
+                            <a href="{{ path('jobs_detail', { 'slug': job.slug }) }}" class="text-xl font-semibold text-blue-600 hover:underline">{{ job.name }}</a>
+
+                            <p class="mt-2">
+                                {% for tag in job.tags %}
+                                    <span class="inline-block px-3 py-1 rounded-full text-white" style="background-color: {{ tag.color }};">
+                                        {{ tag.name }}
+                                    </span>
+                                {% endfor %}
+                            </p>
                         </li>
                     {% endfor %}
                 </ul>

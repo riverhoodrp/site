@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use App\Entity\Jobs;
+use App\Entity\Tags;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -14,7 +16,13 @@ class JobsType extends AbstractType
         $builder
             ->add('name')
             ->add('label')
-        ;
+            ->add('tags', EntityType::class, [
+                'class' => Tags::class, // Utilisez `Tag` au lieu de `Tags`
+                'choice_label' => 'name',
+                'multiple' => true, // Permet de sélectionner plusieurs tags
+                'expanded' => true, // Transforme le champ en cases à cocher
+                'by_reference' => false, // Pour gérer la relation Many-to-Many
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
@@ -24,3 +32,4 @@ class JobsType extends AbstractType
         ]);
     }
 }
+

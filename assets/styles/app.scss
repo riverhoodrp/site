@@ -64,7 +64,7 @@ body {
     position: relative;
     outline: 2px solid var(--blue-skye);
     outline-offset: 2px;
-    transition: outline-offset 0.1s ease-in-out, outline-color 0.1s ease-in-out, transform 0.1s ease-in-out; /* Spécifier transform */
+    transition: outline-offset 0.2s ease-in-out, outline-color 0.2s ease-in-out, transform 0.2s ease-in-out; /* Spécifier transform */
     transform: scale(1); /* Assurez-vous que l'élément a une transformation de base */
 
     &:hover {

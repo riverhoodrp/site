@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Offres d'Emploi{% endblock %}
+
+{% block body %}
+    <div class="flex items-center justify-center min-h-screen">
+        <div class="container mx-auto py-8 mt-20 max-w-3xl">
+            <h1 class="text-3xl font-bold mb-6 text-center">Liste des Offres d'Emploi</h1>
+            {% if jobs|length > 0 %}
+                <ul class="space-y-4">
+                    {% for job in jobs %}
+                        <li class="border border-gray-300 rounded-lg p-6 bg-white shadow-md hover:shadow-lg transition-shadow duration-300">
+                            <a href="{{ path('jobs_detail', { slug: job.name }) }}" class="text-xl font-semibold text-blue-600 hover:underline">{{ job.name }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p class="text-gray-500 mt-6 text-center">Aucune offre d'emploi n'est disponible pour le moment.</p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

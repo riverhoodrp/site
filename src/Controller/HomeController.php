@@ -19,4 +19,10 @@ class HomeController extends AbstractController
     {
         return $this->render('home/reglement.html.twig');
     }
+
+    #[Route('/nous-rejoindre', name: 'join_us')]
+    public function join(): Response
+    {
+        return $this->render('home/join.html.twig');
+    }
 }

@@ -1,5 +1,3 @@
-{# templates/jobs/new.html.twig #}
-
 {% extends 'base.html.twig' %}
 
 {% block title %}{{ form.vars.value.id ? 'Modifier' : 'Créer' }} une Annonce{% endblock %}
@@ -22,6 +20,12 @@
                 {{ form_label(form.label, 'Titre de l\'offre', {'label_attr': {'class': 'font-semibold mb-2'}}) }}
                 {{ form_widget(form.label, {'attr': {'class': 'border border-gray-300 p-3 rounded focus:outline-none focus:ring focus:border-blue-300'}}) }}
                 {{ form_errors(form.label) }}
+            </div>
+
+            <div class="flex flex-col">
+                {{ form_label(form.tags, 'Tags', {'label_attr': {'class': 'font-semibold mb-2'}}) }}
+                {{ form_widget(form.tags, {'attr': {'class': 'border border-gray-300 p-3 rounded focus:outline-none focus:ring focus:border-blue-300'}}) }}
+                {{ form_errors(form.tags) }}
             </div>
 
             <div class="mt-4">

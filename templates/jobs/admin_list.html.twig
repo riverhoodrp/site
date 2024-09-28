@@ -5,35 +5,57 @@
 {% block title %}Gestion des Offres d'Emploi{% endblock %}
 
 {% block body %}
-    <div class="flex items-center justify-center min-h-screen">
+    <div class="flex items-center justify-center min-h-screen bg-gray-100">
         <div class="container mx-auto py-8 mt-20 max-w-3xl">
             <h1 class="text-3xl font-bold mb-6 text-center">Gestion des Offres d'Emploi</h1>
 
-            <div class="mb-4 text-center">
-                <a href="{{ path('jobs_new') }}" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
+            <div class="mb-4 text-center space-x-5 flex justify-center">
+                <a href="{{ path('app_admin') }}" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition inline-flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M11.03 8.53a.75.75 0 1 0-1.06-1.06l-4 4a.75.75 0 0 0 0 1.06l4 4a.75.75 0 1 0 1.06-1.06l-2.72-2.72H18a.75.75 0 0 0 0-1.5H8.31z" />
+                    </svg>
+                    Revenir en arrière
+                </a>
+                <a href="{{ path('jobs_new') }}" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition inline-flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                    </svg>
                     Créer une nouvelle annonce
                 </a>
             </div>
 
             {% if jobs|length > 0 %}
-                <table class="w-full border border-gray-300 rounded-lg">
-                    <thead class="bg-gray-200">
-                    <tr>
-                        <th class="py-2 px-4 text-left">Nom</th>
-                        <th class="py-2 px-4 text-left">Titre</th>
-                    </tr>
+                <table class="w-full border border-gray-300 rounded-lg bg-white">
+                    <thead class="bg-gray-700 text-white">
+                        <tr>
+                            <th class="py-2 px-4 text-left">Nom</th>
+                            <th class="py-2 px-4 text-left">Titre</th>
+                            <th class="py-2 px-4 text-left">Actions</th>
+                        </tr>
                     </thead>
                     <tbody>
                     {% for job in jobs %}
-                        <tr class="border-t border-gray-300 hover:bg-gray-100">
+                        <tr class="border-t border-gray-300">
                             <td class="py-2 px-4">{{ job.name }}</td>
                             <td class="py-2 px-4">{{ job.label }}</td>
                             <td class="py-2 px-4 text-center">
-                                <a href="{{ path('jobs_edit', { id: job.id }) }}" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 transition">Modifier</a>
-                                <form action="{{ path('jobs_delete', { id: job.id }) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cette annonce ?')" method="post" class="inline-block">
-                                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ job.id) }}">
-                                    <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition">Supprimer</button>
-                                </form>
+                                <div class="flex space-x-2 justify-center">
+                                    <a href="{{ path('jobs_edit', { id: job.id }) }}" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 transition inline-flex items-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24">
+                                            <path fill="currentColor" d="M20.71 7.04c-.34.34-.67.67-.68 1c-.03.32.31.65.63.96c.48.5.95.95.93 1.44s-.53 1-1.04 1.5l-4.13 4.14L15 14.66l4.25-4.24l-.96-.96l-1.42 1.41l-3.75-3.75l3.84-3.83c.39-.39 1.04-.39 1.41 0l2.34 2.34c.39.37.39 1.02 0 1.41M3 17.25l9.56-9.57l3.75 3.75L6.75 21H3z" />
+                                        </svg>
+                                        Modifier
+                                    </a>
+                                    <form action="{{ path('jobs_delete', { id: job.id }) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce tag ?')" method="post" class="inline-block">
+                                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ job.id) }}">
+                                        <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition inline-flex items-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                                            </svg>
+                                            Supprimer
+                                        </button>
+                                    </form>
+                                </div>
                             </td>
                         </tr>
                     {% endfor %}

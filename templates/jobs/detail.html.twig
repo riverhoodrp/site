@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ job.name }}{% endblock %}
+
+{% block body %}
+    <div class="flex items-center justify-center min-h-screen">
+        <div class="container mx-auto py-8 mt-20 max-w-3xl">
+            <h1 class="text-3xl font-bold mb-6 text-center">{{ job.name }}</h1>
+        </div>
+    </div>
+{% endblock %}

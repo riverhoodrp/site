@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Jobs;
+use App\Entity\Tags;
 use App\Form\JobsType;
+use App\Form\TagsType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -24,8 +26,10 @@ class JobsController extends AbstractController
     }
 
     #[Route('/jobs/{slug}', name: 'jobs_detail')]
-    public function detail(Jobs $job): Response
+    public function detail(string $slug, EntityManagerInterface $em): Response
     {
+        $job = $em->getRepository(Jobs::class)->findOneBy(['slug' => $slug]);
+
         return $this->render('jobs/detail.html.twig', [
             'job' => $job,
         ]);
@@ -99,5 +103,75 @@ class JobsController extends AbstractController
         }
 
         return $this->redirectToRoute('admin_jobs_list');
+    }
+
+    #[Route('/admin/tags', name: 'tags_list')]
+    #[IsGranted('ROLE_ADMIN')]
+    public function tagsList(EntityManagerInterface $em): Response
+    {
+        $tags = $em->getRepository(Tags::class)->findAll();
+
+        return $this->render('jobs/tags_list.html.twig', [
+            'tags' => $tags,
+        ]);
+    }
+
+    #[Route('/admin/tags/new', name: 'tags_new')]
+    #[IsGranted('ROLE_ADMIN')]
+    public function newTag(Request $request, EntityManagerInterface $em): Response
+    {
+        $tag = new Tags();
+        $form = $this->createForm(TagsType::class, $tag);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em->persist($tag);
+            $em->flush();
+
+            return $this->redirectToRoute('tags_list');
+        }
+
+        return $this->render('jobs/tags.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
+
+    #[Route('/admin/tags/edit/{id}', name: 'tag_edit')]
+    #[IsGranted('ROLE_ADMIN')]
+    public function editTag(Tags $tag, Request $request, EntityManagerInterface $em): Response
+    {
+        $form = $this->createForm(TagsType::class, $tag);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em->flush();
+            $this->addFlash('success', 'Le tag à été modifié avec succès.');
+
+            return $this->redirectToRoute('tags_list');
+        }
+
+        return $this->render('jobs/tags.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
+
+    #[Route('/admin/tags/delete/{id}', name: 'tag_delete', methods: ['POST'])]
+    #[IsGranted('ROLE_ADMIN')]
+    public function deleteTag(Tags $tag, Request $request, EntityManagerInterface $em): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$tag->getId(), $request->request->get('_token'))) {
+            $em->remove($tag);
+            $em->flush();
+
+            $this->addFlash('success', 'Le tag à été supprimé avec succès.');
+            dump("Le tag à été supprimé avec succès.");
+        } else {
+            $this->addFlash('error', 'Token CSRF invalide. La suppression a échoué.');
+            dump("Token CSRF invalide. La suppression a échoué.");
+        }
+
+        return $this->redirectToRoute('tags_list');
     }
 }

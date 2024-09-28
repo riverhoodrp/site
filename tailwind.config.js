@@ -24,8 +24,12 @@ module.exports = {
         "blue-skye-dark": "var(--blue-skye-dark)",
       },
       colors: {
-        "main-text-color": "var(--main-text-color)",
-        "nav-hover-color": "var(--nav-hover-color)",
+        "blue-skye": "var(--blue-skye)",
+        "blue-skye-dark": "var(--blue-skye-dark)",
+      },
+      textDecorationColor: {
+        "blue-skye": "var(--blue-skye)",
+        "blue-skye-dark": "var(--blue-skye-dark)",
       },
       borderColor: {
         "blue-skye": "var(--blue-skye)",

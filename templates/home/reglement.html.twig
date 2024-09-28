@@ -1,0 +1,663 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Riverhood | Règlement{% endblock %}
+
+{% block body %}
+    <!-- Section d'en-tête avec image de fond -->
+    <div class="relative h-screen">
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('{{ asset('images/raw.jpg') }}');"></div>
+        <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+
+        <div class="relative z-10 flex flex-col items-center justify-center h-full text-center text-white space-y-8 w-4/5 mx-auto">
+            <h1 class="text-5xl lg:text-6xl font-bold text-blue-skye underline underline-offset-4 decoration-blue-skye animate-fade-up">Règlement du Serveur</h1>
+            <h3 class="text-3xl font-semibold animate-fade-left">Notions Générales</h3>
+            <h5 class="text-xl animate-fade-right">Le respect de ces notions est obligatoire</h5>
+            <h6 class="text-lg animate-fade-up">
+                <span class="text-blue-skye font-bold underline underline-offset-2 decoration-blue-skye">ATTENTION</span> : Le staff peut sanctionner même si la règle n'est pas explicitement écrite.
+                Le roleplay repose sur la logique et le fair-play.
+            </h6>
+            <p class="mt-4 animate-bounce text-lg">Veuillez lire attentivement le règlement avant de vous engager sur le serveur.</p>
+            <div class="animate-fade-right">
+                <a href="#rules" class="mt-8 px-6 py-3 bg-white text-black rounded-md shadow hover:bg-blue-skye hover:text-white join-us">Lire le règlement</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section des règles -->
+    <div class="bg-gray-100 py-16" id="rules">
+        <div class="w-4/5 mx-auto space-y-16">
+            <!-- Première catégorie de règles : Notions générales -->
+            <div class="text-center">
+                <h3 class="text-4xl text-blue-skye font-bold mb-6">Notions Générales</h3>
+                <p class="text-lg text-gray-700 font-medium">Ces règles doivent être strictement respectées pour une expérience de jeu immersive et juste.</p>
+            </div>
+
+            <!-- Règles générales détaillées -->
+            <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5">
+                <!-- Fear RP -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <h4 class="text-2xl font-bold text-blue-skye underline decoration-blue-skye mb-4">Fear RP</h4>
+                    <p class="text-gray-700">Cela consiste à développer votre sentiment de peur. Vous devez agir comme dans la réalité, avoir peur et éviter les actions héroïques, surtout quand une arme est pointée sur vous.</p>
+                </div>
+
+                <!-- Fear Police -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <h4 class="text-2xl font-bold text-blue-skye-dark underline decoration-blue-skye-dark mb-4">Fear Police</h4>
+                    <p class="text-gray-700">Développez un sentiment de crainte envers la police. Elle peut vous mettre en prison et rendre votre vie difficile, que vous soyez citoyen ou membre d'une organisation.</p>
+                </div>
+
+                <!-- Fear Justice -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <h4 class="text-2xl font-bold text-blue-skye underline decoration-blue-skye mb-4">Fear Justice</h4>
+                    <p class="text-gray-700">Vous devez craindre les répercussions judiciaires d'actes illégaux. Avoir constamment la justice sur vous ne doit pas être pris à la légère.</p>
+                </div>
+
+                <!-- Pain RP -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <h4 class="text-2xl font-bold text-blue-skye-dark underline decoration-blue-skye-dark mb-4">Pain RP</h4>
+                    <p class="text-gray-700">Ressentez la douleur. Toute blessure doit être jouée en RP, que ce soit une jambe cassée ou un mal de tête après une soirée trop arrosée.</p>
+                </div>
+
+                <!-- Mass RP -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <h4 class="text-2xl font-bold text-blue-skye underline decoration-blue-skye mb-4">Mass RP</h4>
+                    <p class="text-gray-700">Prenez en compte la présence de la foule invisible en RP, même si tous les PNJ ne sont pas visibles. Les villes doivent paraître peuplées.</p>
+                </div>
+            </div>
+
+            <hr class="border-t-2 border-blue-skye my-10 w-11/12 mx-auto">
+
+            <!-- Interdictions avec mises en garde -->
+            <div class="text-center">
+                <h3 class="text-4xl text-red-600 font-bold mb-6">Comportements Interdits</h3>
+                <p class="text-lg text-gray-700 font-medium">Tout manquement à ces règles entraînera des sanctions.</p>
+            </div>
+
+            <!-- Règles interdites -->
+            <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+                <!-- PowerGaming -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <h4 class="text-2xl font-bold text-blue-skye-dark underline decoration-blue-skye-dark mb-4">PowerGaming</h4>
+                    <p class="text-gray-700">Le PowerGaming consiste à accomplir des actions irréalistes impossibles dans la vie réelle. (Ex: Sauter d'une voiture en marche et dire "Aïe").</p>
+                </div>
+
+                <!-- MetaGaming -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <h4 class="text-2xl font-bold text-blue-skye underline decoration-blue-skye mb-4">MetaGaming</h4>
+                    <p class="text-gray-700">Utiliser des informations obtenues hors RP (comme sur Discord ou des streams) dans le RP est strictement interdit.</p>
+                </div>
+
+                <!-- Streamhack -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <h4 class="text-2xl font-bold text-blue-skye-dark underline decoration-blue-skye-dark mb-4">Streamhack</h4>
+                    <p class="text-gray-700">Utiliser un stream pour obtenir des informations en jeu est une violation grave et peut entraîner un bannissement permanent.</p>
+                </div>
+
+                <!-- MixeRP -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <h4 class="text-2xl font-bold text-blue-skye underline decoration-blue-skye mb-4">Mixe RP (HRP en jeu)</h4>
+                    <p class="text-gray-700">Changer de langage en plein RP ou utiliser des termes hors RP est interdit. (Ex: "Je suis sur Discord, rejoins-moi").</p>
+                </div>
+
+                <!-- Force RP -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <h4 class="text-2xl font-bold text-blue-skye-dark underline decoration-blue-skye-dark mb-4">Force RP</h4>
+                    <p class="text-gray-700">Cela consiste à forcer un joueur à subir une scène RP sans lui laisser de choix. (Ex: Mettre un joueur en prison sans procès).</p>
+                </div>
+
+                <!-- No RP -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <h4 class="text-2xl font-bold text-blue-skye underline decoration-blue-skye mb-4">No RP</h4>
+                    <p class="text-gray-700">Refuser de jouer une scène RP est interdit. (Ex: Fuir une prise d'otage sans raison valable).</p>
+                </div>
+
+                <!-- Use Bug -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <h4 class="text-2xl font-bold text-blue-skye-dark underline decoration-blue-skye-dark mb-4">Use Bug</h4>
+                    <p class="text-gray-700">Exploiter des bugs ou glitchs en jeu pour en tirer avantage est interdit.</p>
+                </div>
+
+                <!-- Bunny Hopping -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <h4 class="text-2xl font-bold text-blue-skye underline decoration-blue-skye mb-4">Bunny Hopping</h4>
+                    <p class="text-gray-700">Sauter de manière répétée pour aller plus vite est interdit. Cela casse l'immersion RP.</p>
+                </div>
+
+                <!-- Chicken Run -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <h4 class="text-2xl font-bold text-blue-skye-dark underline decoration-blue-skye-dark mb-4">Chicken Run</h4>
+                    <p class="text-gray-700">Le C.R consiste à aller de gauche à droite afin d'esquiver les balles.</p>
+                </div>
+
+                <!-- FreeKill -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <h4 class="text-2xl font-bold text-blue-skye underline decoration-blue-skye mb-4">FreeKill</h4>
+                    <p class="text-gray-700">Cela consiste à tuer gratuitement une personne sans raison roleplay valable ou de la tuer pour une raison minime (car elle vous manque de respect, qu'elle ne vous aime pas etc…).</p>
+                </div>
+
+                <!-- CarKill -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <h4 class="text-2xl font-bold text-blue-skye-dark underline decoration-blue-skye-dark mb-4">CarKill</h4>
+                    <p class="text-gray-700">Cela consiste à tuer quelqu'un volontairement sans contexte RP en lui roulant dessus.</p>
+                </div>
+
+                <!-- Revenge Kill -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <h4 class="text-2xl font-bold text-blue-skye underline decoration-blue-skye mb-4">Revenge Kill</h4>
+                    <p class="text-gray-700">Cela consiste à vous venger d'un agresseur passé vous ayant mis dans le coma, ou vous ayant infligé une mort RP.</p>
+                </div>
+
+                <!-- New Life Rule (NLR) -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <h4 class="text-2xl font-bold text-blue-skye-dark underline decoration-blue-skye-dark mb-4">New Life Rule (NLR)</h4>
+                    <p class="text-gray-700">Cela consiste à oublier tout ce qu'il s'est passé avant votre coma ou votre mort. Vous ne devez pas tout de suite revenir à l'endroit où vous êtes mort, et vous ne devez en aucun cas re participer à la scène que vous aviez entamé avant votre mort ou avant votre mise dans le coma.</p>
+                </div>
+
+                <!-- Drive By -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <h4 class="text-2xl font-bold text-blue-skye underline decoration-blue-skye mb-4">Drive By</h4>
+                    <p class="text-gray-700">Cela consiste à tirer par la fenêtre de son véhicule tout en conduisant ou en étant passager pendant que le véhicule roule. Que ça soit en voiture, moto, avion, sous-marin et bateau cela est interdit.</p>
+                </div>
+
+                <!-- Copbait -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <h4 class="text-2xl font-bold text-blue-skye-dark underline decoration-blue-skye-dark mb-4">Copbait</h4>
+                    <p class="text-gray-700">Cela consiste à provoquer intentionnellement la police pour engendrer des courses poursuites ou des scènes d'arrestations qui n'ont pas lieu d'être. La police est la faction la plus forte du serveur et vous devez la craindre (faire 10 tours du commissariat en klaxonnant dans le seul but d'engendrer une course poursuite).</p>
+                </div>
+
+                <!-- Pit -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <h4 class="text-2xl font-bold text-blue-skye underline decoration-blue-skye mb-4">Pit</h4>
+                    <p class="text-gray-700">Cela consiste à rentrer dans le véhicule d'une autre personne (par exemple pendant une course poursuite).</p>
+                </div>
+
+                <!-- Free Loot -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <h4 class="text-2xl font-bold text-blue-skye-dark underline decoration-blue-skye-dark mb-4">Free Loot</h4>
+                    <p class="text-gray-700">Cela consiste à loot un joueur sans qu'il n'y est eu de scène RP générée (vous voyez une personne au sol et vous décidez d'aller la fouiller).</p>
+                </div>
+
+                <!-- AFK Farm -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <h4 class="text-2xl font-bold text-blue-skye underline decoration-blue-skye mb-4">AFK Farm</h4>
+                    <p class="text-gray-700">Cela consiste à effectuer du farming (runs de métier, collecte de drogue…) en étant AFK (away from keyboard), en n'étant pas réellement présent en juste spammant la touche de récolte.</p>
+                </div>
+
+                <!-- Retour Quartier -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <h4 class="text-2xl font-bold text-blue-skye-dark underline decoration-blue-skye-dark mb-4">Retour Quartier</h4>
+                    <p class="text-gray-700">Cela consiste à retourner délibérément dans la zone de mass RP affiliée à son groupe afin de mettre fin à toute scène RP.</p>
+                </div>
+            </div>
+
+            <hr class="border-t-2 border-blue-skye my-10 w-11/12 mx-auto">
+
+            <!-- Compléments sur le roleplay -->
+            <div class="text-center">
+                <h3 class="text-4xl text-red-600 font-bold mb-6">Compléments sur le Roleplay</h3>
+                <p class="text-lg text-gray-700 font-medium">Le ciel est toujours bleu aux États-Unis.</p>
+            </div>
+
+            <div class="grid gap-10 grid-cols-1">
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <ul class="space-y-4">
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">L'aéroport est une zone interdite.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">La base militaire est une zone interdite. Sauf pour le LSPD</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">L'utilisation du réseau social est à but exclusivement RP, aucune photo HRP ou IRL ne sera tolérée.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Il est obligatoire d'avoir un Nom RP convenable (pas de jeux de mots, pas de noms illisibles, pas de noms de personnalités connues qu’elles soient fictives ou non...).</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Il est interdit de faire de la publicité pour tout serveur discord, site internet, page personnelle... sous peine d'un ban.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Il est obligatoire que votre Nom RP sur discord et steam soient affichés.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Il est obligatoire de se comporter normalement et d'avoir une tenue convenable dans la rue comme sur la route (Conduite RP, etc…).</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Il est obligatoire de rester dans l'ambiance IC en toute circonstance, même en cas de perte de patience.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Il est interdit de créer une organisation criminelle sans l'accord du staff et/ou de créer une organisation fédérale/gouvernementale qui s'approche plus ou moins du travail de la police.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Il est interdit de reconnaître une personne que ce soit au niveau de la voix et/ou de la forme du visage etc.. tant que celle-ci porte un masque intégrale.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Il est interdit de voler des véhicules LSPD/BCSO/LSSD/EMS.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Il est interdit de braquer les EMS en service.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Il est interdit de contacter un service dans le seul but de le braquer.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Il est interdit de voler les armes de personnes même si elles sont dans le coma.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Il est interdit de se déconnecter lors d'un coma pour éviter les scènes médicales.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Il est interdit de donner son inventaire / argent / véhicules /armes avant un wipe ou une pause RP. Il est interdit d'usurper l'identité d'une personne en OOC.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Il est interdit de générer une scène de viol ou d'agression sexuelle.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Il est interdit de discuter sur discord lorsque vous êtes en jeu.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Il est interdit de harceler un joueur, que ce soit en RP (gâcher l'expérience RP du joueur) ou en HRP.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Il est interdit de proliférer de manière récurrente insultes et/ou propos sexistes, racistes, homophobes ou tout autre forme de propos discriminatoires. Votre personnage a le droit d'être un con mais il est de votre devoir de ne pas l'être OOC.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Il est interdit de se déconnecter durant une scène RP. En cas de crash de votre ordinateur, veuillez directement prévenir sur le discord.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Il est interdit de ne pas payer vos amendes/ne pas effectuer vos peines de prison (si vous pensez qu'elles ne sont pas justifiées, il y a un système juridique sur le serveur).</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Dans le cas d'un crash serveur, client, etc… Il est interdit de prendre avantage de la scène RP.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Les prises d'otage et autres actions illégales sont autorisées sur les parking d'entreprise. Cependant, c'est une zone de mass RP, même masqué, vous êtes susceptible d'être reconnu.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">En cas de RP "Pookie" (Balance), vous êtes soumis à la mort RP flash si les preuves sont concrètes.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Il est interdit de prendre en compte dans son RP, des messages privés qui ne peuvent distinctement pas être considérés comme RP. Les messages envoyés en MP sont par défaut des messages HRP. Seule l'utilisation du MAIL RP est valable dans l'utilisation du RP.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Vous ne pouvez pas continuer une scène car elle est trop intense pour vous ? Demandez des choux-fleurs à la personne en face de vous, cela servira à montrer que vous n'êtes pas à l'aise avec la scène et que vous préférez couper la scène, en offrant une porte de sortie. Cette demande équivaut à un safe word. Attention à ne pas tomber dans l'abus, il faut que ce mot soit utilisé à bon escient et dans le cadre d'une scène vraiment dérangeante (pas juste car vous voulez déco ou que vous ne voulez pas être otage par exemple). Tout abus sera sanctionné.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mx-auto flex items-center w-10/12">
+                <h3 class="text-2xl font-bold mb-6 mx-auto flex items-center text-blue-skye text-center">
+                    SI VOUS CONSTATEZ LE NON-ROLEPLAY/NON-RESPECT DES RÈGLES D'UN JOUEUR, RESTEZ DANS VOTRE ROLEPLAY, FINISSEZ LA SCÈNE. CONTACTEZ UN MODÉRATEUR SUR LE SERVEUR ET/OU ENREGISTREZ VOTRE GAMEPLAY AFIN DE NE PAS GACHER L'EXPÉRIENCE ROLEPLAY DES PERSONNES JOUANT AVEC VOUS.
+                </h3>
+            </div>
+
+            <hr class="border-t-2 border-blue-skye my-10 w-11/12 mx-auto">
+
+            <div class="text-center">
+                <h3 class="text-4xl text-blue-skye-dark font-bold mb-6">PERTE DE MÉMOIRE</h3>
+                <p class="text-lg text-gray-700 font-medium">Votre personnage perdra la mémoire dans 2 cas de figures :</p>
+            </div>
+
+            <div class="grid gap-10 grid-cols-1">
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <ul class="space-y-4">
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Vous vous êtes fait assommer, dans ce cas de figure, vous oublierez les parties non-flagrantes de l'action ayant causé votre assommement (Si vous êtes capturé par des gangsters qui vous emmènent jusqu'en haut du Mont Chiliad et vous assomment là-bas, votre personnage se souviendra des faits flagrants de la scène par exemple la voix atypique d'un des agresseurs).</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Vous avez été mis dans le coma, dans ce cas là vous oublierez certains facteurs de l'action ayant causé la mise en coma (Si vous êtes capturé par des gangsters qui vous emmènent jusqu'en haut du Mont Chiliad et vous mettent de le coma là-bas, votre personnage oubliera même le fait de s'être fait enlever). En dépendant du contexte de votre mise en coma, des flashbacks plus ou moins précis reviendront à votre esprit, à vous d'être imaginatif et de faire valoir votre qualité de RP.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Cependant, des témoins de ces scènes pourront vous aider à retrouver la mémoire en vous racontant les évènements liés au déclenchement de votre perte de mémoire.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Si vous avez subi une mort RP, vous oublierez tout ce que vous avez appris avec votre ancien personnage. Soyez le plus RP possible lors de nouveaux personnages, sans quoi votre expérience à vous et aux joueurs avec qui vous jouez sera gâchée.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Les comas suite à un problème de nutrition ou d’hydratation ne vous feront pas perdre la mémoire.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="border-t-2 border-blue-skye my-10 w-11/12 mx-auto">
+
+            <div class="text-center">
+                <h3 class="text-4xl text-blue-skye-dark font-bold mb-6">MORT RP</h3>
+                <p class="text-lg text-gray-700 font-medium">Votre personnage perdra la mémoire dans 2 cas de figures :</p>
+            </div>
+
+            <div class="grid gap-10 grid-cols-1">
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <ul class="space-y-4">
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Prendre une Mort RP revient à mettre un terme à son personnage en jeu. À la différence du Freekill, cette mort est légitime et même validée par les membres du staff du serveur. À la suite d'une Mort RP vous pourrez soumettre le background de votre nouveau personnage via un ticket wipe sur le discord en remplissant le formulaire, ce background sera accepté ou non par les Administrateurs de SilverLake. Vous pourrez vous reconnecter dès lors que votre nouveau background sera accepté.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Si vous êtes un joueur d’une faction illégale; vous avez interdiction de wipe pour rejoindre un autre groupe, sous un délai de quinze jours.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Cependant, des témoins de ces scènes pourront vous aider à retrouver la mémoire en vous racontant les évènements liés au déclenchement de votre perte de mémoire.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Si vous avez subi une mort RP, vous oublierez tout ce que vous avez appris avec votre ancien personnage. Soyez le plus RP possible lors de nouveaux personnages, sans quoi votre expérience à vous et aux joueurs avec qui vous jouez sera gâchée.</p>
+                        </li>
+
+                        <li class="flex items-start justify-center space-x-3 mx-auto">
+                            <p class="text-blue-skye text-2xl underline">Des règles de logique et de cohérence sont à respecter afin d'infliger une mort RP à un joueur:</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Vous ne pouvez pas tuer quelqu'un sans raison sérieuse. Cela ruinerait l'expérience RP de la personne que vous tuez.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Vous devez être dans un endroit caché du public. Prenez en compte le Mass RP, si vous assassinez une personne en pleine rue, vous serez sûrement filmé et pourrez être retrouvé plus facilement.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Vous devrez mettre dans ce dossier le Nom et Prénom de la personne à qui vous souhaitez infliger une mort RP ainsi que les raisons qui imposerait selon vous une Mort RP, sans oublier les portes de sorties pour lui éviter cette mort.. (les raisons peuvent être expliquées comme vous le sentez, soyez créatifs sur vos dossiers).</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Suite à l'envoi de ce dossier, un vote aura lieu et une réponse vous sera donnée sous un certain délai. La relance des référents concernant vos demandes ne fera que retarder votre acceptation, nous ne sommes pas des machines.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Prenez en compte qu'à l'instant où vous démarrez une scène de mort RP, toute personne présente dans celle-ci est susceptible de mourir. En fonction de la scène, le staff se réserve le droit d'infliger des Morts RP Flash (une Mort RP sans passer par un vote du staff) aux acteurs présents.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Un chef de groupe a également la possibilité d'infliger une Mort RP Flash (une Mort RP sans passer par un vote du staff) à un membre de son groupe mais doit être dans la capacité de justifier son acte par une raison RP si nécessaire. Un report ou un rec est quand même obligatoire.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Vous devez indiquer la date à laquelle vous souhaitez effectuer l'action.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Si vous pensez que la scène peut être sensible, effectuez un report IG et un staff viendra spec la scène. Par défaut, essayez d'obtenir un rec de la scène si possible.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Il est interdit de MP des staff, pour toute question, merci de passer par un ticket ou de venir en BDA, plus de personnes seront ainsi à même de vous répondre et le suivi n'en sera que meilleur.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="border-t-2 border-blue-skye my-10 w-11/12 mx-auto">
+
+            <div class="text-center">
+                <h3 class="text-4xl text-blue-skye-dark font-bold mb-6 uppercase">Règlement EMS</h3>
+            </div>
+
+            <div class="grid gap-10 grid-cols-1">
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <ul class="space-y-4">
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Un membre des EMS à l'interdiction de surfacturer un joueur par rapport aux aides médicales qu'il a reçues. Ils sont tenus de respecter une grille de tarif en fonction de l'aide médicale apportée.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Vous êtes dans l'obligation de payer la facture des EMS directement après l'avoir reçue.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Un médecin des EMS se réserve le droit d'infliger tout type de blessure à un joueur dans le mesure où elle n'est pas permanente. Vous êtes dans l'obligation, en tant que joueur, de respecter cette blessure. Un haut gradé de l'hôpital peut infliger une mort RP flash si vous venez trop souvent à l'hôpital ou en fonction de votre blessure. (Crash d’hélico - Bombe explosé sur soi.)</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Si un médecin vous inflige un ATA (Arrêt Total d'Activité), vous êtes dans l'obligation de le respecter. Ces ATA peuvent être cumulées si vous vous re-blessez. Soyez logique avec vos blessures.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Il est interdit de faire appel à l'unité X alors que les EMS sont en route pour vous réanimer.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="border-t-2 border-blue-skye my-10 w-11/12 mx-auto">
+
+            <div class="text-center">
+                <h3 class="text-4xl text-blue-skye-dark font-bold mb-6 uppercase">RÈGLEMENT LSPD / LSSD</h3>
+            </div>
+
+            <div class="grid gap-10 grid-cols-1">
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <ul class="space-y-4">
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Les PNJ sont considérés comme des êtres humains autant que les joueurs. Toute action envers ces derniers peut être soumise au jugement de le LSPD/BCSO/LSSD.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Rappelez vous bien que GTA RP ce n'est pas Call Of Duty. Privilégiez le discours avant tout et l'intelligence du langage plutôt que de faire usage d'une arme.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">L'ensemble des forces de l'ordre d'une RADIO. ( pour les agent qui ont des GoPro merci de les utiliser seulement dans les voiture niveau RP pour éviter de winRP)</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Vous devez privilégier la vie et donc de préférence utiliser une arme non létale si votre assaillant n'est pas armé. Il est rappelé que vous pouvez être condamné par la justice pour un usage disproportionné de la force.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Privilégier les zones non létales (bras, genoux) sauf en cas de nécessité majeure, pour neutraliser l'individu plutôt que de l'abattre.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Le LSPD, le BCSO et le LSSD sont autorisés à faire des descentes dans les quartiers uniquement pour faire respecter la loi ou pour faire pression.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Lors d'un braquage, les LSPD sont autorisées à avoir un véhicule de plus que les braqueurs.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Lors d'une intervention, il est obligatoire que vous gardiez une conduite la plus RP possible. </p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Le pit ne sont pas autorisé tout pit sera considéré comme vice de procédure donc le joueurs sortiras de vos service sans rien avoir.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Il est strictement interdit de faire des sommations rapides(exemple : 1,2,3 TAZER), merci d'être fairplay avec les joueurs en face de vous et de laisser un minimum de temps entre les sommations.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Il est obligatoire, lors de votre prise de service en tant que LSPD, de prendre votre radio, votre équipement, et de les déposer à la fin de celle-ci. </p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Il est interdit de fouiller/palper une personne dans le coma ou gravement blessée et qui nécessite d'importants soins. Les forces de l'ordre peuvent fouiller l'individu s'ils sentent cet acte justifié, soyez FAIRPLAY.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Il est interdit de revendre son arme de service.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Il est interdit pour un EX de la LSPD de vendre ou donner des informations liées à la LSPD ou à ses connaissances grâce aux LSPD(sauf sous dossier).</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Si un agent de la LSPD souhaite rejoindre le côté illégal (sans wipe), il doit en faire la demande via un dossier auprès du staff.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">N’oubliez pas d'être FAIR PLAY si vous souhaitez que les joueurs en face de vous soient FAIR PLAY avec vous.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="border-t-2 border-blue-skye my-10 w-11/12 mx-auto">
+
+            <div class="text-center">
+                <h3 class="text-4xl text-blue-skye-dark font-bold mb-6 uppercase">BLÂMES</h3>
+            </div>
+
+            <div class="grid gap-10 grid-cols-1">
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <ul class="space-y-4">
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Toute faute jugée grave résulte d’un ban sans préavis.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Tout non-respect d'un ATA sera sévèrement puni.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Si le staff remarque un non-respect des règles pour les groupes illégaux, des sanctions pour tous les membres du groupe jusqu'au wipe du groupe entier adviendront.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Mentir sur un dossier de mort RP n'est pas toléré et est sanctionné d'un bannissement permanent.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Vous pourrez, à partir de 2 mois après votre bannissement, effectuer un dossier de débanissement, assurez vous cependant qu'il soit en béton car nous attendons beaucoup de votre part.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="border-t-2 border-blue-skye my-10 w-11/12 mx-auto">
+
+            <div class="text-center">
+                <h3 class="text-4xl text-blue-skye-dark font-bold mb-6 uppercase">RÈGLEMENT ENTREPRISES</h3>
+                <h6 class="text-sm font-bold">CE RÈGLEMENT EST À LIRE ET À APPLIQUER PAR TOUS LES JOUEURS DU SERVEUR</h6>
+            </div>
+
+            <div class="grid gap-10 grid-cols-1">
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <ul class="space-y-4">
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Règlement officiel des entreprises, il regroupe un règlement visant les joueurs et en particulier les gérants d'entreprises.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">Nous prévenons que certaines règles peuvent être amenées à des sanctions en cas de non-respect de celles-ci. Les référents légaux se réservent le droit de changement et de modification concernant le règlement, auquel cas les joueurs en seront expressément avisés.</p>
+                        </li>
+
+                        <li class="flex items-start space-x-3">
+                            <span class="text-blue-skye text-xl font-semibold pointer-events-none select-none">•</span>
+                            <p class="text-gray-700">N’oubliez pas de rester cohérent dans vos actes et vos choix !</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -118,12 +118,12 @@ final class DiscordAuthenticator extends OAuth2Authenticator implements Authenti
     private function processUserRoles(User $user, array $roles): void
     {
         error_log("Processing roles: " . implode(", ", $roles));
-
-        if (in_array("1259634180615176344", $roles)) {
+        if (in_array($_ENV["ROLE_FONDA_ID"] || $_ENV["ROLE_DEV_ID"], $roles)) {
             $user->addRole('ROLE_ADMIN');
-            error_log("ROLE_ADMIN added to user: " . $user->getDiscordId());
+        } else if (in_array($_ENV["GLOBAL_STAFF_ID"], $roles)) {
+            $user->addRole('ROLE_MODERATOR');
         } else {
-            error_log("ROLE_ADMIN not added. Role ID did not match.");
+            error_log("User has no roles");
         }
 
         $this->em->flush();

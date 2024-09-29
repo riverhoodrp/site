@@ -39,9 +39,9 @@
            {% if app.request.attributes.get('_route') == 'app_reglement' %} bg-blue-skye-dark {% else %} hover:bg-blue-skye-dark hover:text-white {% endif %}">
                                 Règlement
                             </a>
-                            <a href="#"
+                            <a href="{{ path('show_patchnotes') }}"
                                class="rounded-md px-3 py-2 text-sm font-medium text-white
-           {% if app.request.attributes.get('_route') == '' %} bg-blue-skye-dark {% else %} hover:bg-blue-skye-dark hover:text-white {% endif %}">
+           {% if app.request.attributes.get('_route') == 'show_patchnotes' %} bg-blue-skye-dark {% else %} hover:bg-blue-skye-dark hover:text-white {% endif %}">
                                 Patchnotes
                             </a>
                             <a href="#"
@@ -95,7 +95,7 @@
         <div class="space-y-1 px-2 pb-3 pt-2">
             <a href="{{ path('app_home') }}" class="block rounded-md px-3 py-2 text-base font-medium text-white {% if app.request.attributes.get('_route') == 'app_home' %} bg-blue-skye-dark {% endif %}" aria-current="page">Accueil</a>
             <a href="{{ path('app_reglement') }}" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-blue-skye-dark hover:text-white {% if app.request.attributes.get('_route') == 'app_reglement' %} bg-blue-skye-dark {% endif %}">Règlement</a>
-            <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-blue-skye-dark hover:text-white">Patchnotes</a>
+            <a href="{{ path('show_patchnotes') }}" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-blue-skye-dark hover:text-white {% if app.request.attributes.get('_route') == 'show_patchnotes' %} bg-blue-skye-dark {% endif %}">Patchnotes</a>
             <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-blue-skye-dark hover:text-white">À propos</a>
             <a href="{{ path('jobs_list') }}" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-blue-skye-dark hover:text-white {% if app.request.attributes.get('_route') == 'jobs_list' %} bg-blue-skye-dark {% endif %}">Recrutements</a>
         </div>

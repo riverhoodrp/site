@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Patchnotes{% endblock %}
+
+{% block body %}
+    <div class="mx-auto py-8 flex flex-col items-center h-screen bg-gray-100">
+        <h1 class="text-3xl font-bold mb-6 text-center mt-20">Liste des Patchnotes</h1>
+
+        {% if patchnotes|length > 0 %}
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                {% for patchnote in patchnotes %}
+                    <div class="bg-white shadow-md rounded-lg overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300">
+                        <div class="p-4">
+                            <h2 class="text-xl font-bold text-gray-900 mb-2">{{ patchnote.title }}</h2>
+                            <p class="text-gray-600 text-sm mb-4">
+                                Créé le : {{ patchnote.createdAt ? patchnote.createdAt|date('Y-m-d H:i:s') : 'Non spécifié' }}
+                            </p>
+
+                            {% if patchnote.image %}
+                                <div class="mb-4">
+                                    <img src="{{ asset('uploads/patchnotes/' ~ patchnote.image) }}" draggable="false" alt="Image du patchnote" class="w-full h-60 object-cover rounded-md">
+                                </div>
+                            {% endif %}
+
+                            <div class="flex justify-end items-center mt-4">
+                                <a href="{{ path('app_patchnote_show', {'id': patchnote.id}) }}" class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600 transition">Lire</a>
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="col-span-full text-center">
+                        <p class="text-gray-500 mt-6">Aucun patchnote disponible.</p>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="text-gray-500 mt-6 text-center">Aucun patchnote disponible.</p>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer un nouveau Patchnote{% endblock %}
+
+{% block body %}
+    <div class="container mx-auto py-8">
+        <h1 class="text-3xl font-bold mb-6 text-center">Créer un nouveau Patchnote</h1>
+
+        <div class="max-w-xl mx-auto bg-white p-6 rounded-lg shadow-lg">
+            {{ form_start(form, {'attr': {'class': 'space-y-4', 'enctype': 'multipart/form-data'}}) }}
+
+            <div>
+                {{ form_label(form.title, 'Titre du patchnote', {'label_attr': {'class': 'font-semibold text-gray-700'}}) }}
+                {{ form_widget(form.title, {'attr': {'class': 'w-full border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500'}}) }}
+                {{ form_errors(form.title) }}
+            </div>
+
+            <div>
+                {{ form_label(form.content, 'Contenu du patchnote', {'label_attr': {'class': 'font-semibold text-gray-700'}}) }}
+                {{ form_widget(form.content, {'attr': {'class': 'w-full border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500'}}) }}
+                {{ form_errors(form.content) }}
+            </div>
+
+            <div>
+                {{ form_label(form.image, 'Image', {'label_attr': {'class': 'font-semibold text-gray-700'}}) }}
+                {{ form_widget(form.image, {'attr': {'class': 'block w-full text-gray-700 border-gray-300 p-2 rounded focus:outline-none'}}) }}
+                {{ form_errors(form.image) }}
+            </div>
+
+            <div class="mt-4">
+                <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">{{ button_label|default('Enregistrer') }}</button>
+            </div>
+            {{ form_end(form) }}
+        </div>
+
+        <div class="mt-4 text-center">
+            <a href="{{ path('app_patchnote_index') }}" class="text-blue-500 hover:underline">Retour à la liste</a>
+        </div>
+    </div>
+{% endblock %}

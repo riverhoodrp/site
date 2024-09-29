@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ patchnote.title }} - Détails du Patchnote{% endblock %}
+
+{% block body %}
+    <div class="container mx-auto py-8">
+        <h1 class="text-3xl font-bold mb-4">{{ patchnote.title }}</h1>
+
+        <div class="mb-4 text-gray-600">
+            <span class="font-semibold">Créé le :</span> {{ patchnote.createdAt ? patchnote.createdAt|date('Y-m-d H:i:s') : 'Non spécifié' }}
+        </div>
+
+        <div class="mb-6">
+            {% if patchnote.image %}
+                <img src="{{ asset('uploads/patchnotes/' ~ patchnote.image) }}" alt="Image du patchnote" class="w-full h-auto rounded-lg shadow-md mb-4">
+            {% endif %}
+            <div class="prose">
+                {{ patchnote.content|raw }}
+            </div>
+        </div>
+
+        <div>
+            <a href="{{ path('app_patchnote_index') }}" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
+                Retour à la liste des patchnotes
+            </a>
+        </div>
+    </div>
+{% endblock %}

@@ -23,6 +23,12 @@
             </div>
 
             <div class="flex flex-col">
+                {{ form_label(form.description, 'Descritpion de l\'offre', {'label_attr': {'class': 'font-semibold mb-2'}}) }}
+                {{ form_widget(form.description, {'attr': {'class': 'border border-gray-300 p-3 rounded focus:outline-none focus:ring focus:border-blue-300'}}) }}
+                {{ form_errors(form.description) }}
+            </div>
+
+            <div class="flex flex-col">
                 {{ form_label(form.tags, 'Tags', {'label_attr': {'class': 'font-semibold mb-2'}}) }}
                 {{ form_widget(form.tags, {'attr': {'class': 'border border-gray-300 p-3 rounded focus:outline-none focus:ring focus:border-blue-300'}}) }}
                 {{ form_errors(form.tags) }}

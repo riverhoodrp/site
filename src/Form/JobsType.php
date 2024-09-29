@@ -22,7 +22,8 @@ class JobsType extends AbstractType
                 'multiple' => true, // Permet de sélectionner plusieurs tags
                 'expanded' => true, // Transforme le champ en cases à cocher
                 'by_reference' => false, // Pour gérer la relation Many-to-Many
-            ]);
+            ])
+            ->add('description');
     }
 
     public function configureOptions(OptionsResolver $resolver): void

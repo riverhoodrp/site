@@ -44,9 +44,9 @@
            {% if app.request.attributes.get('_route') == 'show_patchnotes' %} bg-blue-skye-dark {% else %} hover:bg-blue-skye-dark hover:text-white {% endif %}">
                                 Patchnotes
                             </a>
-                            <a href="#"
+                            <a href="{{ path('app_about') }}"
                                class="rounded-md px-3 py-2 text-sm font-medium text-white
-           {% if app.request.attributes.get('_route') == '' %} bg-blue-skye-dark {% else %} hover:bg-blue-skye-dark hover:text-white {% endif %}">
+           {% if app.request.attributes.get('_route') == 'about' %} bg-blue-skye-dark {% else %} hover:bg-blue-skye-dark hover:text-white {% endif %}">
                                 À propos
                             </a>
                             <a href="{{ path('jobs_list') }}"

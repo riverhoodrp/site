@@ -3,6 +3,8 @@
 {% block title %}{{ form.vars.value.id ? 'Modifier' : 'Créer' }} une Annonce{% endblock %}
 
 {% block body %}
+    {{ ckeditor_js() }}
+    {{ ckeditor_init() }}
     <div class="flex items-center justify-center min-h-screen">
         <div class="w-full max-w-4xl bg-white p-10 rounded-lg shadow-lg">
             <h1 class="text-3xl font-bold mb-6 text-center">{{ form.vars.value.id ? 'Modifier' : 'Créer' }} une Annonce</h1>
@@ -23,9 +25,9 @@
             </div>
 
             <div class="flex flex-col">
-                {{ form_label(form.description, 'Descritpion de l\'offre', {'label_attr': {'class': 'font-semibold mb-2'}}) }}
-                {{ form_widget(form.description, {'attr': {'class': 'border border-gray-300 p-3 rounded focus:outline-none focus:ring focus:border-blue-300'}}) }}
-                {{ form_errors(form.description) }}
+                {{ form_label(form.description|raw, 'Descritpion de l\'offre', {'label_attr': {'class': 'font-semibold mb-2'}}) }}
+                {{ form_widget(form.description|raw, {'attr': {'class': 'border border-gray-300 p-3 rounded focus:outline-none focus:ring focus:border-blue-300'}}) }}
+                {{ form_errors(form.description|raw) }}
             </div>
 
             <div class="flex flex-col">

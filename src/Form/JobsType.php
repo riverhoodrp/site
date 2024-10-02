@@ -8,6 +8,9 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class JobsType extends AbstractType
 {
@@ -23,7 +26,22 @@ class JobsType extends AbstractType
                 'expanded' => true, // Transforme le champ en cases à cocher
                 'by_reference' => false, // Pour gérer la relation Many-to-Many
             ])
-            ->add('description');
+            ->add('description', CKEditorType::class, [
+
+                'label' => 'Contenu',
+                'purify_html' => true,
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Merci de renseigner un contenu'
+                    ]),
+                    new Length([
+                        'min' => 5,
+                        'minMessage' => 'Le contenu doit contenir au moins {{ limit }} caractères',
+                        'max' => 5000,
+                        'maxMessage' => 'Le contenu doit contenir au maximum {{ limit }} caractères'
+                    ]),
+                ]
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

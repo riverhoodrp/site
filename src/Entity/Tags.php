@@ -27,7 +27,7 @@ class Tags
     /**
      * @var Collection<int, Jobs>
      */
-    #[ORM\ManyToMany(targetEntity: Jobs::class, inversedBy: 'tags')]
+    #[ORM\ManyToMany(targetEntity: Jobs::class, mappedBy: 'tags')]
     private Collection $jobs;
 
     public function __construct()
@@ -76,7 +76,6 @@ class Tags
     {
         if (!$this->jobs->contains($job)) {
             $this->jobs[] = $job;
-            $job->addTag($this);
         }
 
         return $this;
@@ -84,9 +83,7 @@ class Tags
 
     public function removeJob(Jobs $job): static
     {
-        if ($this->jobs->removeElement($job)) {
-            $job->removeTag($this);
-        }
+        $this->jobs->removeElement($job);
 
         return $this;
     }

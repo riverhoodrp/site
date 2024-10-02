@@ -36,7 +36,7 @@ class Jobs
     /**
      * @var Collection<int, Tags>
      */
-    #[ORM\ManyToMany(targetEntity: Tags::class, inversedBy: 'jobs')]
+    #[ORM\ManyToMany(targetEntity: Tags::class, inversedBy: 'jobs', cascade: ['persist'])]
     private Collection $tags;
 
 
@@ -119,11 +119,12 @@ class Jobs
 
     public function removeTag(Tags $tag): static
     {
-        $this->tags->removeElement($tag);
+        if ($this->tags->removeElement($tag)) {
+            $tag->removeJob($this);
+        }
 
         return $this;
     }
-
     public function getDescription(): ?string
     {
         return $this->description;

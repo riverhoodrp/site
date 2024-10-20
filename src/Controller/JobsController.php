@@ -46,22 +46,23 @@ class JobsController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/jobs/new', name: 'jobs_new')]
+    #[Route('/admin/jobs/new', name: 'jobs_new', methods: ["GET", "POST"])]
     #[IsGranted('ROLE_ADMIN')]
-    public function new(Request $request, EntityManagerInterface $em): Response
+    public function create(Request $request, EntityManagerInterface $entityManager): Response
     {
         $job = new Jobs();
         $form = $this->createForm(JobsType::class, $job);
-
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em->persist($job);
-            $em->flush();
+            // Sauvegarde de l'entité
+            $entityManager->persist($job);
+            $entityManager->flush();
 
             return $this->redirectToRoute('admin_jobs_list');
         }
 
+        // Si le formulaire n'est pas valide, renvoyer une erreur ou recharger la page avec les erreurs.
         return $this->render('jobs/new.html.twig', [
             'form' => $form->createView(),
         ]);

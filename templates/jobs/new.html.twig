@@ -3,8 +3,6 @@
 {% block title %}{{ form.vars.value.id ? 'Modifier' : 'Créer' }} une Annonce{% endblock %}
 
 {% block body %}
-    {{ ckeditor_js() }}
-    {{ ckeditor_init() }}
     <div class="flex items-center justify-center min-h-screen">
         <div class="w-full max-w-4xl bg-white p-10 rounded-lg shadow-lg">
             <h1 class="text-3xl font-bold mb-6 text-center">{{ form.vars.value.id ? 'Modifier' : 'Créer' }} une Annonce</h1>
@@ -25,9 +23,9 @@
             </div>
 
             <div class="flex flex-col">
-                {{ form_label(form.description|raw, 'Descritpion de l\'offre', {'label_attr': {'class': 'font-semibold mb-2'}}) }}
-                {{ form_widget(form.description|raw, {'attr': {'class': 'border border-gray-300 p-3 rounded focus:outline-none focus:ring focus:border-blue-300'}}) }}
-                {{ form_errors(form.description|raw) }}
+                {{ form_label(form.description, 'Descritpion de l\'offre', {'label_attr': {'class': 'font-semibold mb-2'}}) }}
+                {{ form_widget(form.description, {'attr': {'class': 'border border-gray-300 p-3 rounded focus:outline-none focus:ring focus:border-blue-300 desc'}}) }}
+                {{ form_errors(form.description) }}
             </div>
 
             <div class="flex flex-col">
@@ -37,11 +35,26 @@
             </div>
 
             <div class="mt-4">
-                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
-                    {{ form.vars.value.id ? 'Modifier' : 'Créer' }}
-                </button>
+                {{ form_label(form.save, form.vars.value.id ? 'Modifier' : 'Créer') }}
+                {{ form_widget(form.save) }}
             </div>
             {{ form_end(form) }}
         </div>
     </div>
+    <script>
+        tinymce.init({
+            selector: '.desc', // Assurez-vous que le champ description est bien un <textarea>
+            plugins: [
+                'anchor', 'autolink', 'charmap', 'codesample', 'emoticons', 'image', 'link', 'lists', 'media', 'searchreplace', 'table', 'visualblocks', 'wordcount'
+            ],
+            toolbar: 'undo redo | bold italic underline | link image media',
+            tinycomments_mode: 'embedded',
+            tinycomments_author: 'Author name',
+            setup: function (editor) {
+                editor.on('change', function () {
+                    editor.save(); // Synchronise le contenu de TinyMCE avec le champ <textarea>
+                });
+            }
+        });
+    </script>
 {% endblock %}

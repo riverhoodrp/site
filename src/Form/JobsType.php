@@ -6,9 +6,11 @@ use App\Entity\Jobs;
 use App\Entity\Tags;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
@@ -26,10 +28,9 @@ class JobsType extends AbstractType
                 'expanded' => true, // Transforme le champ en cases à cocher
                 'by_reference' => false, // Pour gérer la relation Many-to-Many
             ])
-            ->add('description', CKEditorType::class, [
-
+            ->add('description', TextareaType::class, [
                 'label' => 'Contenu',
-                'purify_html' => true,
+                'attr' => ['class' => 'tinymce'],
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Merci de renseigner un contenu'
@@ -41,6 +42,10 @@ class JobsType extends AbstractType
                         'maxMessage' => 'Le contenu doit contenir au maximum {{ limit }} caractères'
                     ]),
                 ]
+            ])
+            ->add('save', SubmitType::class, [
+                'label' => 'Créer',
+                'attr' => ['class' => 'bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition'],
             ]);
     }
 

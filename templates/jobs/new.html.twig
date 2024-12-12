@@ -4,33 +4,42 @@
 
 {% block body %}
     <div class="flex items-center justify-center min-h-screen">
-        <div class="w-full max-w-4xl bg-white p-10 rounded-lg shadow-lg">
-            <h1 class="text-3xl font-bold mb-6 text-center">{{ form.vars.value.id ? 'Modifier' : 'Créer' }} une Annonce</h1>
+        <div class="w-full max-w-4xl p-10 rounded-lg shadow-lg bg-blue-skye">
+            <h1 class="text-3xl font-bold mb-6 text-center text-white">{{ form.vars.value.id ? 'Modifier' : 'Créer' }} une Annonce</h1>
 
             {{ form_start(form, {'attr': {'class': 'space-y-6'}}) }}
             <input type="hidden" name="_token" value="{{ csrf_token('create_job') }}">
 
-            <div class="flex flex-col">
+            <div class="flex flex-col text-white">
                 {{ form_label(form.name, 'Nom de l\'offre', {'label_attr': {'class': 'font-semibold mb-2'}}) }}
-                {{ form_widget(form.name, {'attr': {'class': 'border border-gray-300 p-3 rounded focus:outline-none focus:ring focus:border-blue-300'}}) }}
+                {{ form_widget(form.name, {'attr': {'class': 'border border-gray-300 text-black p-3 rounded focus:outline-none focus:ring focus:border-blue-300'}}) }}
                 {{ form_errors(form.name) }}
             </div>
 
-            <div class="flex flex-col">
+            <div class="flex flex-col text-white">
                 {{ form_label(form.label, 'Titre de l\'offre', {'label_attr': {'class': 'font-semibold mb-2'}}) }}
-                {{ form_widget(form.label, {'attr': {'class': 'border border-gray-300 p-3 rounded focus:outline-none focus:ring focus:border-blue-300'}}) }}
+                {{ form_widget(form.label, {'attr': {'class': 'border border-gray-300 text-black p-3 rounded focus:outline-none focus:ring focus:border-blue-300'}}) }}
                 {{ form_errors(form.label) }}
             </div>
 
-            <div class="flex flex-col">
+            <div class="flex flex-col text-white">
                 {{ form_label(form.description, 'Descritpion de l\'offre', {'label_attr': {'class': 'font-semibold mb-2'}}) }}
-                {{ form_widget(form.description, {'attr': {'class': 'border border-gray-300 p-3 rounded focus:outline-none focus:ring focus:border-blue-300 desc'}}) }}
+                {{ form_widget(form.description, {'attr': {'class': 'border text-black border-gray-300 p-3 rounded focus:outline-none focus:ring focus:border-blue-300 desc'}}) }}
                 {{ form_errors(form.description) }}
             </div>
 
             <div class="flex flex-col">
-                {{ form_label(form.tags, 'Tags', {'label_attr': {'class': 'font-semibold mb-2'}}) }}
-                {{ form_widget(form.tags, {'attr': {'class': 'border border-gray-300 p-3 rounded focus:outline-none focus:ring focus:border-blue-300'}}) }}
+                {{ form_label(form.tags, 'Tags', {'label_attr': {'class': 'font-semibold mb-2 text-white'}}) }}
+
+                <div class="bg-white border border-gray-300 p-3 rounded flex flex-col space-y-2">
+                    {% for tag in form.tags %}
+                        <label class="flex items-center space-x-2">
+                            {{ form_widget(tag, { 'attr': {'class': 'h-4 w-4 text-blue-600 focus:ring focus:ring-blue-300 rounded border-gray-300'} }) }}
+                            <span class="text-black">{{ tag.vars.label }}</span>
+                        </label>
+                    {% endfor %}
+                </div>
+
                 {{ form_errors(form.tags) }}
             </div>
 
@@ -50,6 +59,7 @@
             toolbar: 'undo redo | bold italic underline | link image media',
             tinycomments_mode: 'embedded',
             tinycomments_author: 'Author name',
+            language: 'fr_FR',
             setup: function (editor) {
                 editor.on('change', function () {
                     editor.save(); // Synchronise le contenu de TinyMCE avec le champ <textarea>

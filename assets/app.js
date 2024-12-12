@@ -1,5 +1,4 @@
 import './styles/app.scss';
-import '../node_modules/tinymce/tinymce.min.js';
 
 const $ = require('jquery');
 global.$ = global.jQuery = $;

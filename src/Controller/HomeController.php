@@ -27,7 +27,7 @@ class HomeController extends AbstractController
     public function getPlayerCount(): JsonResponse
     {
         try {
-            $response = $this->client->request('GET', 'http://riverhood.fr:30120/riverhood_framework/players/get/count');
+            $response = $this->client->request('GET', 'https://riverhood.fr:30120/riverhood_framework/players/get/count');
             $data = $response->toArray();
             $playerCount = $data['count'] ?? 0;
 
